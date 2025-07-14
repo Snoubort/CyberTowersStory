@@ -1,0 +1,37 @@
+# Visual Studio Code
+.vscode/
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+
+# Если хочешь сохранить настройки расширений, можно игнорировать их выборочно:
+# .vscode/extensions.json
+
+# Twine 3
+# Игнорируем временные файлы, которые Twine 3 может создавать
+*.log
+*.bak
+*.tmp
+*.backup
+
+# Node modules, если используешь Node.js для сборки или связки (часто с Twine 3 не обязательно)
+node_modules/
+
+# Системные файлы ОС
+.DS_Store
+Thumbs.db
+
+# Логи и временные файлы
+*.log
+*.tmp
+
+# Если используешь git для хранения исходников Twine:
+*.html
+*.twee
+*.twee3
+# но обычно это не нужно игнорировать, так как это исходники истории
+
+# Другие файлы, которые можно игнорировать, если появляются временные или кэшированные
+.cache/
+*.swp
