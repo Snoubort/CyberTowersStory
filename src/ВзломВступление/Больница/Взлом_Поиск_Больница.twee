@@ -1,0 +1,44 @@
+:: Взлом_Поиск_Больница {"position":"1975,925","size":"100,100"}
+Вы пытаетесь определить, в какую больницу могли бы быть доставлены раненные сотрудники сил безопасности.
+
+<<if $IsPassHackVideo>>
+	<<set $IsKnowHospital = true>>
+<<else>>
+	Вы исследуете карту и пытаетесь найти ближайшую подходящую больницу
+    <<button $TestText>>
+        <<set _roll = random(1,20)>>
+        <<set _total = _roll + $Mastery>>
+        <<set $IsTryKnowHospital = true>>
+        <<if _total >= $KnowHospitalTest>>
+          <<set $IsKnowHospital = true>>
+        <</if>>
+        <<goto "Взлом_Поиск_Больница">>
+     <</button>>
+<</if>>
+
+<<if not $HackNews>>
+  <<button "Вы решаете для начала просмотреть новость">>
+      <<goto "Взлом_Новость">>
+  <</button>>
+  <<silently>>
+      [[Вы решаете для начала просмотреть новость|Взлом_Новость]]
+  <</silently>>
+<</if>>
+
+<<if not $IsTryHackSecure>>
+  <<button "Вы решаете попытаться взломать силы безопасности">>
+      <<goto "Взлом_Силы_Безопасности">>
+  <</button>>
+  <<silently>>
+      [[Вы решаете попытаться взломать силы безопасности|Взлом_Силы_Безопасности]]
+  <</silently>>
+<</if>>
+
+<<if $IsKnowHospital>>
+  <<button "Отправиться в больницу">>
+      <<goto "Больница_1">>
+  <</button>>
+  <<silently>>
+      [[Отправиться в больницу|Больница_1]]
+  <</silently>>
+<</if>>

@@ -1,0 +1,97 @@
+:: StoryTitle
+Cyber freedom or cyber hell
+
+
+:: StoryData
+{
+    "ifid": "DEE005AF-5B12-43BC-911F-2FAF1D31E1BE",
+    "format": "SugarCube",
+    "format-version": "2.37.3",
+    "start": "Main menu",
+    "zoom": 1
+}
+
+:: Испытание {"position":"1400,1175","size":"100,100"}
+<<silently>>
+\:: Испытание
+
+<<set _strChallenge = 12>>
+<<set _dexChallenge = 10>>
+<<set _intChallenge = 13>>
+
+<<if typeof $strTried === "undefined">>
+  <<set $strTried = false>>
+  <<set $dexTried = false>>
+  <<set $intTried = false>>
+  <<set $passed = false>>
+  <<set $resultText = "Выберите испытание:">>
+<</if>>
+
+<<set _btnStr = "Испытание силы (сложность: " + _strChallenge + ")">>
+<<set _btnDex = "Испытание ловкости (сложность: " + _dexChallenge + ")">>
+<<set _btnInt = "Испытание интеллекта (сложность: " + _intChallenge + ")">>
+<</silently>>
+<div id="test-area">
+
+  <strong><<print $resultText>></strong><br><br>
+
+  <<if !$passed>>
+  
+    <<if !$strTried>>
+      <<button _btnStr>>
+        <<set _roll = random(1,10)>>
+        <<set _total = _roll + $strength>>
+        <<set $strTried = true>>
+        <<if _total >= _strChallenge>>
+          <<set $passed = true>>
+          <<set $resultText = "Успех в испытании силы! (Бросок: " + _roll + " + сила " + $strength + " = " + _total + ")" >>
+        <<else>>
+          <<set $resultText = "Провал в испытании силы. (Бросок: " + _roll + " + сила " + $strength + " = " + _total + ")" >>
+        <</if>>
+        <<replace "#test-area">><<include "Испытание">><</replace>>
+      <</button>>
+    <</if>>
+
+    <<if !$dexTried>>
+      <<button _btnDex>>
+        <<set _roll = random(1,10)>>
+        <<set _total = _roll + $dexterity>>
+        <<set $dexTried = true>>
+        <<if _total >= _dexChallenge>>
+          <<set $passed = true>>
+          <<set $resultText = "Успех в испытании ловкости! (Бросок: " + _roll + " + ловкость " + $dexterity + " = " + _total + ")" >>
+        <<else>>
+          <<set $resultText = "Провал в испытании ловкости. (Бросок: " + _roll + " + ловкость " + $dexterity + " = " + _total + ")" >>
+        <</if>>
+        <<replace "#test-area">><<include "Испытание">><</replace>>
+      <</button>>
+    <</if>>
+
+    <<if !$intTried>>
+      <<button _btnInt>>
+        <<set _roll = random(1,10)>>
+        <<set _total = _roll + $intelligence>>
+        <<set $intTried = true>>
+        <<if _total >= _intChallenge>>
+          <<set $passed = true>>
+          <<set $resultText = "Успех в испытании интеллекта! (Бросок: " + _roll + " + интеллект " + $intelligence + " = " + _total + ")" >>
+        <<else>>
+          <<set $resultText = "Провал в испытании интеллекта. (Бросок: " + _roll + " + интеллект " + $intelligence + " = " + _total + ")" >>
+        <</if>>
+        <<replace "#test-area">><<include "Испытание">><</replace>>
+      <</button>>
+    <</if>>
+
+  <</if>>
+
+  <<if $passed or ($strTried and $dexTried and $intTried)>>
+    <br>
+    <<button "Конец демонстрации">>
+      <<goto "Конец демонстрации">>
+    <</button>>
+  <</if>>
+</div>
+
+<<silently>>
+[[Конец демонстрации]]
+<</silently>>

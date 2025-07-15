@@ -1,0 +1,74 @@
+:: Генерация_Имя_Статы {"position":"1050,500","size":"100,100"}
+Смотря на своё виртуальное отражение, в вашей голове невольно всплывает ваше имя:  
+<<textbox "$playerName" $playerName>>
+
+Ваш взгляд падает на 3D-модель человека в нижнем правом углу зеркала. Модель занимает всё пространство зеркала и приобретает ваши черты. Возле модели приведена примерная оценка ваших способностей.
+
+<<if !$generated>>
+<strong>Распределите очки</strong> (осталось: $pointsLeft)
+
+<strong>$PhysName:</strong> $Phys
+<div style="display: flex; gap: 10px; margin-bottom: 10px;">
+	<<if $Phys < $maxPerStat and $pointsLeft > 0>>
+		<<button "Добавить +">>
+			<<set $Phys += 1>>
+			<<set $pointsLeft -= 1>>
+			<<goto "Генерация_Имя_Статы">>
+		<</button>>
+	<</if>>
+	<<if $Phys > 0>>
+		<<button "Отнять -">>
+			<<set $Phys -= 1>>
+			<<set $pointsLeft += 1>>
+			<<goto "Генерация_Имя_Статы">>
+		<</button>>
+	<</if>>
+</div>
+
+<strong>$TechName:</strong> $Tech
+<div style="display: flex; gap: 10px; margin-bottom: 10px;">
+	<<if $Tech < $maxPerStat and $pointsLeft > 0>>
+		<<button "Добавить +">>
+			<<set $Tech += 1>>
+			<<set $pointsLeft -= 1>>
+			<<goto "Генерация_Имя_Статы">>
+		<</button>>
+	<</if>>
+	<<if $Tech > 0>>
+		<<button "Отнять -">>
+			<<set $Tech -= 1>>
+			<<set $pointsLeft += 1>>
+			<<goto "Генерация_Имя_Статы">>
+		<</button>>
+	<</if>>
+</div>
+
+<strong>$MasteryName:</strong> $Mastery
+<div style="display: flex; gap: 10px; margin-bottom: 10px;">
+	<<if $Mastery < $maxPerStat and $pointsLeft > 0>>
+		<<button "Добавить +">>
+			<<set $Mastery += 1>>
+			<<set $pointsLeft -= 1>>
+			<<goto "Генерация_Имя_Статы">>
+		<</button>>
+	<</if>>
+	<<if $Mastery > 0>>
+		<<button "Отнять -">>
+			<<set $Mastery -= 1>>
+			<<set $pointsLeft += 1>>
+			<<goto "Генерация_Имя_Статы">>
+		<</button>>
+	<</if>>
+</div>
+
+<</if>>
+
+<<if $pointsLeft is 0 or $generated>>
+  <<button "Причесаться">>
+  	<<set $generated = true>>
+  	<<goto "Генерация_Причесаться_Переодеться">>
+  <</button>>
+  <<silently>>
+  	[[Причесаться|Генерация_Причесаться_Переодеться]]
+  <</silently>>
+<</if>>

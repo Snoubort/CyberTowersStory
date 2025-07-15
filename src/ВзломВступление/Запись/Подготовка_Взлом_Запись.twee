@@ -1,0 +1,11 @@
+:: Подготовка_Взлом_Запись {"position":"2300,400","size":"100,100"}
+<<if typeof $HackVideoTest === "undefined">>
+    <<set $HackVideoTest = 8>>
+    <<set $ChallangeButtonText = "Испытание " + $TechName + " (сложность: " + $HackVideoTest + ")">>
+    <<set $IsTryHackVideo = false>>
+    <<set $IsPassHackVideo = false>>
+<</if>>
+
+<<goto "Взлом_Запись">>
+
+[[Взлом_Запись]]

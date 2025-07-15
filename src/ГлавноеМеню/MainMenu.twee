@@ -1,0 +1,7 @@
+:: Main menu {"position":"125,175","size":"100,100"}
+<<button "Начать">>
+		<<goto "Вступление_1">>
+<</button>>
+<<silently>>
+	[[Вступление_1]]
+<</silently>>

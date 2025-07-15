@@ -1,0 +1,20 @@
+:: Генерация_Переменные {"position":"1275,425","size":"100,100"}
+<<set $playerName = "Имя">>
+
+<<set $maxPoints = 10>>
+<<set $maxPerStat = 5>>
+<<set $pointsLeft = $maxPoints>>
+<<set $generated = false>>
+
+<<set $PhysName = "Физическая подготовка">>
+<<set $Phys = 0>>
+
+<<set $TechName = "Технические навыки">>
+<<set $Tech = 0>>
+
+<<set $MasteryName = "Мастерство">>
+<<set $Mastery = 0>>
+
+<<goto "Генерация_Имя_Статы">>
+
+[[Генерация_Имя_Статы]]

@@ -1,0 +1,11 @@
+:: Взлом_Подготовка {"position":"1875,275","size":"100,100"}
+<<set $HackNews = false>>
+
+<<set $IsTryHackVideo = false>>
+<<set $IsPassHackVideo = false>>
+
+<<set $IsTryHackSecure = false>>
+<<set $IsTryKnowHospital = false>>
+
+<<goto "Взлом_2">>
+[[Взлом_2]]
