@@ -5,6 +5,8 @@
 <<set $IsPassHackVideo = false>>
 
 <<set $IsTryHackSecure = false>>
+<<set $IsPassHackSecure = false>>
+
 <<set $IsTryKnowHospital = false>>
 
 <<goto "Взлом_2">>
