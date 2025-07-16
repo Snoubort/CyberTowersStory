@@ -1,0 +1,11 @@
+:: Подготовка_Взлом_Силы_Безопасности {"position":"2275,850"}
+<<if typeof $HackSecureTest === "undefined">>
+    <<set $HackSecureTest = 12>>
+    <<set $ChallangeButtonText = "Испытание " + $TechName + " (сложность: " + $HackSecureTest + ")">>
+    <<set $IsTryHackSecure = false>>
+    <<set $IsPassHackSecure = false>>
+<</if>>
+
+<<goto "Взлом_Силы_Безопасности">>
+
+[[Взлом_Силы_Безопасности]]
