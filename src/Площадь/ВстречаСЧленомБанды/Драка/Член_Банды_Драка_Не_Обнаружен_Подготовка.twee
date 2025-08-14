@@ -1,0 +1,11 @@
+:: Член_Банды_Драка_Не_Обнаружен_Подготовка {"position":"3500,175"}
+
+<<if typeof $IsTryAttack === "undefined">>
+    <<set $AttackTest = 10>>
+    <<set $IsTryAttack = false>>
+    <<set $IsAttackSuccess = false>>
+    <<set $ChallangeButtonText = "Испытание " + $PhysName + " (сложность: " + $AttackTest + ")">>
+<</if>>
+
+<<goto "Член_Банды_Драка_Не_Обнаружен">>
+[[Член_Банды_Драка_Не_Обнаружен]]

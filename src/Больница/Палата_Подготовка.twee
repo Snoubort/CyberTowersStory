@@ -1,0 +1,8 @@
+:: Палата_Подготовка {"position":"2750,1000","size":"100,100"}
+
+<<if typeof $ReplyСounter === "undefined">>
+    <<set $ReplyСounter = 0>>
+<</if>>
+
+<<goto "Палата_1">>
+[[Палата_1]]

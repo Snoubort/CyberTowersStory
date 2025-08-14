@@ -1,0 +1,11 @@
+:: Член_Банды_Допрос_Подготовка {"position":"3975,150"}
+
+<<if typeof $IsTryDeception === "undefined">>
+    <<set $DeceptionTest = 10>>
+    <<set $IsTryDeception = false>>
+    <<set $IsDeceptionkSuccess = false>>
+    <<set $ChallangeButtonText = "Испытание " + $MasteryName + " (сложность: " + $DeceptionTest + ")">>
+<</if>>
+
+<<goto "Член_Банды_Допрос_1">>
+[[Член_Банды_Допрос_1]]

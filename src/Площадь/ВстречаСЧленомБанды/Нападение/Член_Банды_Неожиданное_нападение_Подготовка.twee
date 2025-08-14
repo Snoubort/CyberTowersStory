@@ -1,0 +1,9 @@
+:: Член_Банды_Неожиданное_нападение_Подготовка {"position":"3325,525"}
+
+<<if typeof $FoundEnemyTest === "undefined">>
+    <<set $FoundEnemyTest = 12>>
+    <<set $ChallangeButtonText = "Испытание " + $MasteryName + " (сложность: " + $FoundEnemyTest + ")">>
+<</if>>
+
+<<goto "Член_Банды_Неожиданное_нападение">>
+[[Член_Банды_Неожиданное_нападение]]

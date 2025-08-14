@@ -1,1 +1,88 @@
-:: Член_Банды_Драка_Обнаружен, {"position":"3500,525","size":"100,100"}
+:: Член_Банды_Драка_Обнаружен {"position":"4050,700"}
+<<if not $IsTryAttack1 and not $IsAttackSuccess>>
+    Вы видите возможность для атаки на врага.
+<</if>>
+
+<<if not $IsTryAttack1 and not $IsAttackSuccess>>
+	Вы пытаетесь атаковать противника. Вы надеетесь обезвредить его, взяв в захват и придушив.
+    <<button $ChallangeButtonText>>
+        <<set _roll = random(1,20)>>
+        <<set _total = _roll + $Phys>>
+        <<set $IsTryAttack = true>>
+        <<if _total >= $AttackTest>>
+        	<<set $IsAttackSuccess = true>>
+        <</if>>
+        <<goto "Член_Банды_Драка_Обнаружен">>
+     <</button>>
+<</if>>
+
+<<if $IsTryAttack1 and not $IsTryAttack2 and not $IsAttackSuccess>>
+    Ваша первая атака оказалась неудачной. Вы неверно рассчитали расстояние, ваш удар пришёлся мимо бандита.
+    Бандит вас заметил, однако, у вас есть время ещё на одну атаку.
+<</if>>
+
+<<if $IsTryAttack1 and not $IsTryAttack2 and not $IsAttackSuccess>>
+	Вы пользуетесь элементом неожиданности и снова пытаетесь атаковать бандита.
+    <<button $ChallangeButtonText>>
+        <<set _roll = random(1,20)>>
+        <<set _total = _roll + $Phys>>
+        <<set $IsTryAttack = true>>
+        <<if _total >= $AttackTest>>
+        	<<set $IsAttackSuccess = true>>
+        <</if>>
+        <<goto "Член_Банды_Драка_Обнаружен">>
+     <</button>>
+<</if>>
+
+<<if $IsTryAttack1 and $IsTryAttack2 and not $IsTryAttack3 and not $IsAttackSuccess>>
+    Противник уклонился от второй вашей атаки. Бандит успевает нанести вам ответную атаку и попадает по вам.
+У вас есть ещё один шанс победить, вы можете атаковать снова. Однако, это последняя попытка, второй удар от бандита вы не выдержите.
+<</if>>
+
+<<if $IsTryAttack1 and $IsTryAttack2 and not $IsTryAttack3 and not $IsAttackSuccess>>
+	Вы в последний раз пытаетесь атаковать бандита.
+    <<button $ChallangeButtonText>>
+        <<set _roll = random(1,20)>>
+        <<set _total = _roll + $Phys>>
+        <<set $IsTryAttack = true>>
+        <<if _total >= $AttackTest>>
+        	<<set $IsAttackSuccess = true>>
+        <</if>>
+        <<goto "Член_Банды_Драка_Обнаружен">>
+     <</button>>
+<</if>>
+
+<<if $IsTryAttack1 and $IsAttackSuccess>>
+	Вы успешно обезвредили противника. Ваша атака оказалась удачной. 
+    Вы пробили защиту противника, после чего, взяв его в захват, придушили.
+    Противник оказался безоружен и ранен. Вы уверены, что с такой раной и после потери сознания, этот бандит больше не боец.
+    <<button "Вы победили бандита">>
+        <<set _roll = random(1,20)>>
+        <<set _total = _roll + $Phys>>
+        <<set $IsTryAttack = true>>
+        <<if _total >= $AttackTest>>
+        	<<set $IsAttackSuccess = true>>
+        <</if>>
+        <<goto "Член_Банды_Допрос_Подготовка">>
+     <</button>>
+<</if>>
+
+<<if $IsTryAttack3 and not $IsAttackSuccess>>
+	Вы упускаете очередную возможность атаки. В этот раз ваш удар был заблокирован.
+    В этот момент мир выцветает и вы теряете сознание от очередногой пропущенной атаки от бандита.
+    <<button "Вы теряете сознание">>
+        <<set _roll = random(1,20)>>
+        <<set _total = _roll + $Phys>>
+        <<set $IsTryAttack = true>>
+        <<if _total >= $AttackTest>>
+        	<<set $IsAttackSuccess = true>>
+        <</if>>
+        <<goto "Член_Банды_Драка_Провал">>
+     <</button>>
+<</if>>
+
+
+<<silent>>
+    [[Член_Банды_Драка_Провал]]
+    [[Член_Банды_Допрос_Подготовка]]
+<</silent>>

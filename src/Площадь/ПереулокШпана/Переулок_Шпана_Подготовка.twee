@@ -1,0 +1,11 @@
+:: Переулок_Шпана_Подготовка {"position":"2925,525"}
+
+<<if typeof $IsTryCatchBoys === "undefined">>
+    <<set $CatchBoysTest = 10>>
+    <<set $IsTryCatchBoys = false>>
+    <<set $IsCatchBoys = false>>
+    <<set $ChallangeButtonText = "Испытание " + $PhysName + " (сложность: " + $CatchBoysTest + ")">>
+<</if>>
+
+<<goto "Переулок_Шпана_1">>
+[[Переулок_Шпана_1]]
